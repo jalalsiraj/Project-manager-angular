@@ -1,0 +1,53 @@
+<div class="dialog">
+    <h2 mat-dialog-title>{{header}}</h2>
+
+    <mat-dialog-content>
+        <div>
+            <form [formGroup]="projectForm" style="margin-top: 30px;">
+                <div fxLayout="column" fxLayoutGap="5%">
+                    <div fxFlex="33%" fxLayout="row">
+                        <mat-label fxFlex="40%">Name</mat-label>
+                        <mat-form-field fxFlex="60%" appearance="outline">
+                            <input matInput formControlName="name">
+                            <mat-error *ngIf="projectForm?.get('name')?.hasError('required')">
+                                Name Required
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div fxFlex="33%" fxLayout="row">
+                        <mat-label fxFlex="40%">Description</mat-label>
+                        <mat-form-field fxFlex="60%" appearance="outline">
+                            <textarea matInput formControlName="description"></textarea>
+                            <mat-error *ngIf="projectForm?.get('description')?.hasError('maxlength')">
+                                Maximum 200 characters
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div fxFlex="33%" fxLayout="row">
+                        <mat-label fxFlex="40%">Manager</mat-label>
+                        <mat-form-field fxFlex="60%" appearance="outline">
+                            <mat-select formControlName="managerId">
+                                <mat-option [value]="item._id" *ngFor="let item of managersList">{{item.name}}
+                                </mat-option>
+                            </mat-select>
+                            <mat-error *ngIf="projectForm?.get('managerId')?.hasError('required')">
+                                Manager is required
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </mat-dialog-content>
+
+    <mat-dialog-actions align="end">
+        @if(data.action == 'create' || data.action == 'edit'){
+        <button matButton="elevated" (click)="onClose()">Close</button>
+        <button matButton="filled" (click)="onSave()">Save</button>
+        }
+        @else if(data.action == 'view'){
+        <button matButton="filled" (click)="onClose()">Close</button>
+        }
+        <!-- <button matButton="filled" (click)="onYes()">Yes</button> -->
+    </mat-dialog-actions>
+</div>

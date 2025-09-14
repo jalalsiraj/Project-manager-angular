@@ -1,0 +1,38 @@
+.background {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-card {
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+    background: white;
+    backdrop-filter: blur(8px);
+    text-align: center;
+    min-width: 300px;
+    transition: transform 0.3s ease-in-out;
+    height: auto;
+}
+
+.login-card:hover {
+    transform: translateY(-5px);
+}
+
+.title {
+    font-size: 28px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: black;
+    // background-clip: text;
+    // -webkit-text-fill-color: transparent;
+}
+
+.btn-group button {
+    min-width: 200px;
+    font-size: 16px;
+    border-radius: 30px;
+    // --mat-sys-primary-container: black;
+}

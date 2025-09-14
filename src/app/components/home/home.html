@@ -1,0 +1,12 @@
+<div fxLayout="row" fxLayoutAlign="center center" class="background">
+    <mat-card class="login-card" fxLayout="column" fxLayoutGap="50px">
+        <h1 class="title">Welcome to project manager app</h1>
+        <div fxLayout="row" fxLayoutAlign="space-between center" class="btn-group">
+            <button matFab extended (click)="navigateToLogin('tenant-register')"> <mat-icon>person</mat-icon>Register as
+                a
+                Tenant</button>
+            <button matFab extended (click)="navigateToLogin('login')"> <mat-icon>supervisor_account</mat-icon> Login as
+                User</button>
+        </div>
+    </mat-card>
+</div>

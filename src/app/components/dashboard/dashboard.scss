@@ -1,0 +1,85 @@
+.navbar {
+    position: sticky;
+    height: 80px;
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0px 40px;
+}
+
+.logout-btn {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logout-btn button {
+    width: 150px;
+    height: 40px;
+    border-radius: 5px;
+    outline: none;
+    border: 1px solid gray;
+    cursor: pointer;
+    background-color: crimson;
+    color: white;
+    font-weight: 500;
+    font-family: "poppins";
+}
+
+.logout-btn button:hover {
+    background-color: rgb(122, 12, 34);
+}
+
+.page-container {
+    background-color: white;
+    border-radius: 10px;
+    height: 100px;
+    padding: 30px;
+    width: 90%;
+    height: auto;
+    margin-top: 30px;
+}
+
+.no-bg {
+    background: none;
+    width: 100%;
+}
+
+.add-btn {
+    margin-right: 40px;
+}
+
+.add-btn button {
+    width: 120px;
+    height: 40px;
+    border-radius: 5px;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    background-color: rgb(24, 63, 255);
+    color: white;
+    font-weight: 500;
+    font-family: "poppins";
+}
+
+
+.add-btn button:hover {
+    background-color: rgb(19, 41, 152);
+}
+
+table {
+    width: 100%;
+}
+
+.mat-mdc-table .mat-mdc-header-cell {
+    text-align: center;
+    justify-content: center;
+
+}
+
+.mat-mdc-cell {
+    text-align: center;
+}

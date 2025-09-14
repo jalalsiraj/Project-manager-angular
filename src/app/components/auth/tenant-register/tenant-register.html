@@ -1,0 +1,64 @@
+<div class="container">
+    @if (!loader) {
+    <div class="page-container">
+        <div style="height: auto; margin: 30px 0;">
+            <div matTooltip="Home" (click)="navigateToHome()" fxLayout="row" class="home-icon">
+                <mat-icon>arrow_back</mat-icon>
+            </div>
+            <h1 style="padding: 0;">Tenant Registration</h1>
+        </div>
+        <form [formGroup]="tenantRegisterForm" style="margin-top: 30px;">
+            <div fxLayout="column" fxLayoutGap="5%">
+                <div fxFlex="33%" fxLayout="row">
+                    <mat-label fxFlex="40%">Name</mat-label>
+                    <mat-form-field fxFlex="60%" appearance="outline">
+                        <input matInput formControlName="name">
+                        <mat-error *ngIf="tenantRegisterForm?.get('name')?.hasError('required')">
+                            Name is Required
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+                <div fxFlex="33%" fxLayout="row">
+                    <mat-label fxFlex="40%">Email</mat-label>
+                    <mat-form-field fxFlex="60%" appearance="outline">
+                        <input matInput formControlName="email">
+                        <mat-error *ngIf="tenantRegisterForm?.get('email')?.hasError('required')">
+                            Email id Required
+                        </mat-error>
+                        <mat-error *ngIf="tenantRegisterForm?.get('email')?.hasError('email')">
+                            Enter Valid Email
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+                <div fxFlex="33%" fxLayout="row">
+                    <mat-label fxFlex="40%">Password</mat-label>
+                    <mat-form-field fxFlex="60%" appearance="outline">
+                        <input matInput [type]="passShow? 'text':'password'" formControlName="password">
+                        <mat-icon (click)="showPassword($event)" matSuffix style="cursor: pointer;"
+                            *ngIf="!passShow">visibility</mat-icon>
+                        <mat-icon (click)="showPassword($event)" matSuffix style="cursor: pointer;"
+                            *ngIf="passShow">visibility_off</mat-icon>
+                        <mat-error *ngIf="tenantRegisterForm?.get('password')?.hasError('required')">
+                            Password required
+                        </mat-error>
+                        <mat-error *ngIf="tenantRegisterForm?.get('password')?.hasError('minlength')">
+                            Password must atleast contain 6 characters
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+                <div fxLayout="row" fxLayoutAlign="center center">
+                    <button class="btn" matButton="filled" (click)="register()">Register</button>
+                </div><br>
+                <!-- <div fxLayout="row" fxLayoutAlign="center center">
+                    <p>Already a user? <a [routerLink]="['/auth/login']" [queryParams]="{role: role}">click</a> to
+                        Login</p>
+                </div> -->
+            </div>
+        </form>
+    </div>
+    }
+    @else {
+    <mat-spinner></mat-spinner>
+    }
+
+</div>
