@@ -1,59 +1,126 @@
-# UserManagerFrontend
+# Project Manager Frontend (Angular + Material)
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.0.4.
+A frontend application for managing projects, tenants, users, and roles.  
+Built with **Angular**, **Angular Material**, and **Flex Layout**.  
 
-## Development server
+---
 
-To start a local development server, run:
+## 📌 Features
+- User authentication with JWT  
+- Role-based access control (RBAC)  
+- Multi-tenant support  
+- Project CRUD UI  
+- Angular Reactive Forms with validation  
+- Material dialogs (confirmation, input, edit forms)  
+- Responsive layout with Flex Layout  
 
+---
+
+## 🛠️ Tech Stack
+- **Framework:** Angular 17+  
+- **UI Library:** Angular Material + Flex Layout  
+- **State Management:** Reactive Forms, Services  
+- **Routing & Guards:** Angular Router with Auth Guards  
+- **HTTP Client:** Angular HttpClient for API calls  
+
+---
+
+## 📂 Project Structure
+
+project-manager-frontend/  
+│-- src/  
+│   │-- app/  
+│   │   │-- components/ # Reusable UI components (dialogs, tables, forms)  
+│   │   │-- pages/ # Feature pages (login, dashboard, projects, tenants)  
+│   │   │-- services/ # API & business logic  
+│   │   │-- guards/ # Auth & role guards  
+│   │   │-- app-routing.module.ts # Routing setup  
+│   │   │-- app.module.ts # Root module  
+│   │-- assets/ # Static assets (icons, styles)  
+│   │-- environments/ # Environment configs  
+│-- angular.json # Angular configuration  
+│-- package.json # Dependencies & scripts  
+
+---
+
+## ⚙️ Setup & Installation
+
+### 1. Clone the repository
+```bash
+git clone https://github.com/<your-username>/Project-manager-frontend.git
+cd Project-manager-frontend
+```
+
+### 2. Install dependencies
+```bash
+npm install
+```
+
+### 3. Configure environment variables
+Update the API URL in `src/environments/environment.ts`:
+
+```ts
+export const environment = {
+  production: false,
+  apiUrl: 'http://localhost:5000'
+};
+```
+
+### 4. Run the application
 ```bash
 ng serve
 ```
+App will run on: **http://localhost:4200**
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+---
 
-## Code scaffolding
+## 🚀 Core Functionalities
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+### 🔑 Authentication
+- Login with email & password  
+- JWT stored in `localStorage`  
+- Guards to prevent unauthorized access  
 
+### 📂 Projects
+- List all projects with Material Table  
+- Add/Edit/Delete projects using Material Dialogs  
+- Assign managers to projects  
+
+### 👤 Users
+- Manage tenant-specific users  
+- Assign roles (Admin, Manager, User)  
+- Form validation with Angular Reactive Forms  
+
+### 🏢 Tenants
+- Tenant registration & selection  
+- Scoped data based on tenant  
+
+---
+
+## 🔒 Guards & Security
+- **AuthGuard:** Prevents access if not logged in  
+- **LoginGuard:** Prevents navigating back to login if already authenticated  
+
+---
+
+## 🧪 Development Commands
 ```bash
-ng generate component component-name
-```
+# Run the dev server
+ng serve
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+# Build for production
+ng build --prod
 
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
+# Run unit tests
 ng test
-```
 
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
+# Run end-to-end tests
 ng e2e
 ```
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+---
 
-## Additional Resources
+## 📝 License
+This project is licensed under the MIT License.  
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+---
